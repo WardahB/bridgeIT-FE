@@ -170,7 +170,7 @@ const ExploreProjects: React.FC = () => {
               const overlap = predictedSkills.filter((skill: string) =>
                 studentSkillsSet.has(skill.toLowerCase())
               );
-              projectObj.matchScore = overlap.length;
+              projectObj.matchScore = overlap.length; //hihe gf
             }
           } catch (err) {
             console.error("Error calling Python API for project:", proj.title, err);
