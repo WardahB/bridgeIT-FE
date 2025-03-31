@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import ProfileCard from "./ProfileCard";
 import ProjectCard from "./ExploreProjectCard";
-import ProjectDetailsPanel from "../[id]/page";
 import { ToastContainer } from "react-toastify"; // to display toasts
 import { Search as SearchIcon, Filter, ChevronDown } from "lucide-react";
+import ProjectDetailsPanel from "../[id]/ProjectDetailsPanel";
 
 // Interfaces
 interface UserProfile {
@@ -40,7 +40,7 @@ interface Proposal {
   id: string;
   projectId: string;
   studentId: string;
-  status: string; 
+  status: string; // "Pending", "Accepted", "Rejected"
 }
 
 const ExploreProjects: React.FC = () => {
@@ -170,7 +170,7 @@ const ExploreProjects: React.FC = () => {
               const overlap = predictedSkills.filter((skill: string) =>
                 studentSkillsSet.has(skill.toLowerCase())
               );
-              projectObj.matchScore = overlap.length; //hihe gf
+              projectObj.matchScore = overlap.length;
             }
           } catch (err) {
             console.error("Error calling Python API for project:", proj.title, err);
